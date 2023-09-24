@@ -18,8 +18,40 @@ class Program
             Console.WriteLine("6. Salir");
             Console.Write("Ingrese una opción del 1 al 6: ");
 
-        }
-         while (opcion != 6); // Continuar hasta que se seleccione la opción 6 (Salir)
-        
+            string? input = Console.ReadLine();
+
+            if (!string.IsNullOrEmpty(input) && int.TryParse(input, out opcion))
+            {
+                switch (opcion)
+                {
+                    case 1:
+                        //ParesImpares();
+                        break;
+                    case 2:
+                        //TablaDeMultiplicar();
+                        break;
+                    case 3:
+                        //Factorial();
+                        break;
+                    case 4:
+                        //NumerosPrimos();
+                        break;
+                    case 5:
+                        //Fibonacci();
+                        break;
+                    case 6:
+                        Console.WriteLine("Saliendo del programa. ¡Hasta luego!");
+                        break;
+                    default:
+                        Console.WriteLine("Opción no válida. Por favor, elija una opción válida.");
+                        break;
+                }
+            }
+            else
+            {
+                Console.WriteLine("Entrada no válida. Por favor, ingrese un número del 1 al 6.");
+            }
+
+        } while (opcion != 6); // Continuar hasta que se seleccione la opción 6 (Salir)
     }
 }
