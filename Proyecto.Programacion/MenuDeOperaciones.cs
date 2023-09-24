@@ -168,9 +168,9 @@ class Program
 
                 var numerosPrimos = Enumerable.Range(2, numero - 1).Where(EsPrimo);
                 double media = numerosPrimos.Average();
-                //double factorialMedia = FactorialDe(media);
+                double factorialMedia = FactorialDe(media);
                 Console.WriteLine($"Media de los números primos: {media}");
-                //Console.WriteLine($"Factorial de la media {media} es: {factorialMedia}");
+                Console.WriteLine($"Factorial de la media {media} es: {factorialMedia}");
             }
             else
             {
