@@ -25,7 +25,7 @@ class Program
                 switch (opcion)
                 {
                     case 1:
-                        //ParesImpares();
+                        ParesImpares();
                         break;
                     case 2:
                         //TablaDeMultiplicar();
@@ -53,5 +53,45 @@ class Program
             }
 
         } while (opcion != 6); // Continuar hasta que se seleccione la opción 6 (Salir)
+    }
+static void ParesImpares()
+    {
+        do
+        {
+            Console.Clear(); // Limpiar la pantalla
+            Console.Write("Ingrese un número entero positivo para realizar las operaciones de pares e impares: ");
+            string? input = Console.ReadLine();
+            if (!string.IsNullOrEmpty(input) && int.TryParse(input, out int numero))
+            {
+                Console.WriteLine("Pares: ");
+                for (int i = 0; i <= numero; i++)
+                {
+                    if (i % 2 == 0)
+                        Console.Write(i + " ");
+                }
+                Console.WriteLine();
+                Console.WriteLine("Impares: ");
+                for (int i = 0; i <= numero; i++)
+                {
+                    if (i % 2 != 0)
+                        Console.Write(i + " ");
+                }
+                Console.WriteLine();
+
+                int sumaPares = Enumerable.Range(0, numero + 1).Where(x => x % 2 == 0).Sum();
+                int sumaImpares = Enumerable.Range(0, numero + 1).Where(x => x % 2 != 0).Sum();
+                Console.WriteLine($"Suma de pares: {sumaPares}");
+                Console.WriteLine($"Suma de impares: {sumaImpares}");
+                Console.WriteLine(sumaPares > sumaImpares ? "La suma de pares es mayor que la suma de impares." : "La suma de impares es mayor que la suma de pares.");
+            }
+            else
+            {
+                Console.WriteLine("Entrada no válida. Por favor, ingrese un número entero positivo.");
+            }
+
+            Console.Write("¿Desea realizar otra operación en Pares e Impares? (s/n): ");
+        } while (Console.ReadLine()?.Trim().ToLower() == "s");
+
+        Console.Clear(); // Limpiar la pantalla antes de salir de la función
     }
 }
